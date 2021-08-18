@@ -8,8 +8,10 @@ jobs:
     name: Build web
     runs-on: ubuntu-latest
     steps:
+      - run: echo "Starting"
       - uses: subosito/flutter-action@v1.5.3
-      - run: echo "Starting deploy"
+        with:
+          channel: 'dev'
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release
